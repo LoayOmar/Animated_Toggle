@@ -1,18 +1,15 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Animated Toggle
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+Animated Toggle Give you easy way to make your custom Animated toggle.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Installation
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Add this to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  your_package_name: ^1.0.0
+  ```
 
 ## Features
 
@@ -20,16 +17,68 @@ TODO: List what your package can do. Maybe include images, gifs, or videos.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+import 'package:your_package_name/your_package_name.dart';
+
+void main() {
+  
+}
+
+// Start use th package in your State Widget
+  ```
 
 ## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Simple Example about how to use
 
 ```dart
-const like = 'sample';
+class MyAnimatedToggle extends StatefulWidget {
+  const MyAnimatedToggle({super.key});
+
+  @override
+  State<MyAnimatedToggle> createState() => _MyAnimatedToggleState();
+}
+
+class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Animated Toggle'),
+      ),
+      body: Center(
+        child: AnimatedToggle(
+          taps: const ['First', 'Second', 'Last'],
+          width: MediaQuery.of(context).size.width,
+          height: 48,
+          duration: const Duration(milliseconds: 500),
+          background: Colors.grey,
+          activeColor: Colors.indigo,
+          activeTextStyle: const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+          inActiveTextStyle: const TextStyle(
+              fontSize: 14, fontWeight: FontWeight.w400, color: Colors.indigo),
+          horizontalPadding: 4,
+          verticalPadding: 4,
+          activeHorizontalPadding: 0,
+          activeVerticalPadding: 0,
+          radius: 14,
+          activeButtonRadius: 14,
+          underLineHeight: 1,
+          activeUnderLineHeight: 2,
+          index: 0,
+          onChange: (index) {},
+          underLineColor: Colors.grey,
+          activeUnderLineColor: Colors.black,
+          showUnderLine: false,
+          showActiveButtonColor: true,
+        ),
+      ),
+    );
+  }
+}
+
 ```
 
 ## Additional information

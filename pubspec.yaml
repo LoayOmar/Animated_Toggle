@@ -1,7 +1,7 @@
 name: animated_toggle
 description: Animated Toggle Give you easy way to make your custom Animated toggle.
 version: 0.0.1
-homepage:
+homepage: https://github.com/LoayOmar/Animated_Toggle
 
 environment:
   sdk: '>=3.1.5 <4.0.0'
@@ -15,6 +15,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  dartdoc: ^6.3.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

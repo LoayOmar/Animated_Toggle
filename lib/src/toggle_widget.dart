@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 
-class CustomAnimatedToggle extends StatefulWidget {
-  CustomAnimatedToggle({
+class AnimatedToggle extends StatefulWidget {
+  AnimatedToggle({
     Key? key,
     required this.taps,
     required this.width,
@@ -60,10 +60,10 @@ class CustomAnimatedToggle extends StatefulWidget {
   final Duration duration;
 
   @override
-  State<CustomAnimatedToggle> createState() => _CustomAnimatedToggleState();
+  State<AnimatedToggle> createState() => _AnimatedToggleState();
 }
 
-class _CustomAnimatedToggleState extends State<CustomAnimatedToggle> {
+class _AnimatedToggleState extends State<AnimatedToggle> {
   @override
   Widget build(BuildContext context) {
     return Container(
