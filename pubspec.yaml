@@ -1,6 +1,6 @@
 name: animated_toggle
 description: Animated Toggle Give you easy way to make your custom Animated toggle.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/LoayOmar/Animated_Toggle
 
 environment:
@@ -8,6 +8,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  decimal: ^2.3.3
   flutter:
     sdk: flutter
 
