@@ -73,7 +73,8 @@ class AnimatedHorizontalToggle extends StatefulWidget {
       _AnimatedHorizontalToggleState();
 }
 
-class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle> with TickerProviderStateMixin{
+class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
+    with TickerProviderStateMixin {
   Decimal decimalIndex = Decimal.parse('0');
   bool addInitialIndex = false;
 
@@ -171,7 +172,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle> wit
           buildSwitchTab(
             i == decimalIndex.toDouble().round(),
             widget.taps[i],
-            widget.prefixIcons != null? widget.prefixIcons![i] : null,
+            widget.prefixIcons != null ? widget.prefixIcons![i] : null,
             i == decimalIndex.toDouble().round()
                 ? widget.activeTextStyle
                 : widget.inActiveTextStyle,
@@ -185,7 +186,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle> wit
   Widget buildSwitchTab(
     bool isLeft,
     String title,
-      Widget? prefixIcon,
+    Widget? prefixIcon,
     TextStyle style,
     int toggleIndex,
     Duration duration,
@@ -205,11 +206,11 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle> wit
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if(widget.prefixIcons != null)
-              prefixIcon!,
-
-            if(widget.prefixIcons != null)
-              SizedBox(width: widget.spaceBetweenIconAndText,),
+            if (widget.prefixIcons != null) prefixIcon!,
+            if (widget.prefixIcons != null)
+              SizedBox(
+                width: widget.spaceBetweenIconAndText,
+              ),
             AnimatedDefaultTextStyle(
               duration: duration,
               curve: Curves.easeInOut,
@@ -240,9 +241,9 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle> wit
           }
 
           if (widget.onChange != null) {
-            if (decimalIndex.toDouble() < newIndex){
+            if (decimalIndex.toDouble() < newIndex) {
               widget.onChange!(decimalIndex.toDouble().floor());
-            }else{
+            } else {
               widget.onChange!(decimalIndex.toDouble().ceil());
             }
           }

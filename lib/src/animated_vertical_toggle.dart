@@ -39,7 +39,7 @@ class AnimatedVerticalToggle extends StatefulWidget {
       this.activeSideLineColor = Colors.black,
       this.showSideLine = false,
       this.showActiveButtonColor = true,
-        this.activeButtonHeight = 40,
+      this.activeButtonHeight = 40,
       this.local = 'en'});
 
   final Duration duration;
@@ -71,11 +71,11 @@ class AnimatedVerticalToggle extends StatefulWidget {
   final double spaceBetweenIconAndText;
 
   @override
-  State<AnimatedVerticalToggle> createState() =>
-      _AnimatedVerticalToggleState();
+  State<AnimatedVerticalToggle> createState() => _AnimatedVerticalToggleState();
 }
 
-class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with TickerProviderStateMixin{
+class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
+    with TickerProviderStateMixin {
   Decimal decimalIndex = Decimal.parse('0');
   bool addInitialIndex = false;
 
@@ -98,7 +98,8 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
           if (widget.showActiveButtonColor)
             AnimatedAlign(
               alignment: Alignment(
-                  0, (decimalIndex.toDouble() /
+                  0,
+                  (decimalIndex.toDouble() /
                           (widget.taps.length - 1) *
                           (2 - (widget.verticalPadding / 100))) -
                       1 +
@@ -124,15 +125,15 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
           if (widget.showSideLine)
             AnimatedAlign(
               alignment: Alignment(
-                  -1, (decimalIndex.toDouble() /
-                  (widget.taps.length - 1) *
-                  (2 - (widget.verticalPadding / 100))) -
-                  1 +
-                  ((widget.verticalPadding) / 100)),
+                  -1,
+                  (decimalIndex.toDouble() /
+                          (widget.taps.length - 1) *
+                          (2 - (widget.verticalPadding / 100))) -
+                      1 +
+                      ((widget.verticalPadding) / 100)),
               duration: widget.duration,
               child: Container(
-                height: widget.activeButtonHeight -
-                    widget.horizontalPadding,
+                height: widget.activeButtonHeight - widget.horizontalPadding,
                 width: widget.activeSideLineWidth,
                 margin: EdgeInsets.only(
                   top: widget.activeVerticalPadding,
@@ -160,7 +161,7 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
           buildSwitchTab(
             i == decimalIndex.toDouble().round(),
             widget.taps[i],
-            widget.prefixIcons != null? widget.prefixIcons![i] : null,
+            widget.prefixIcons != null ? widget.prefixIcons![i] : null,
             i == decimalIndex.toDouble().round()
                 ? widget.activeTextStyle
                 : widget.inActiveTextStyle,
@@ -174,7 +175,7 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
   Widget buildSwitchTab(
     bool isLeft,
     String title,
-      Widget? prefixIcon,
+    Widget? prefixIcon,
     TextStyle style,
     int toggleIndex,
     Duration duration,
@@ -189,17 +190,21 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
         margin: EdgeInsets.symmetric(
             horizontal: widget.horizontalPadding,
             vertical: widget.verticalPadding / 2),
-        height: widget.activeButtonHeight + (widget.verticalPadding / (decimalIndex.toDouble().round() + 1)),
+        height: widget.activeButtonHeight +
+            (widget.verticalPadding / (decimalIndex.toDouble().round() + 1)),
         child: Row(
-          mainAxisAlignment: widget.showSideLine? MainAxisAlignment.start : MainAxisAlignment.center,
+          mainAxisAlignment: widget.showSideLine
+              ? MainAxisAlignment.start
+              : MainAxisAlignment.center,
           children: [
-            if(widget.prefixIcons != null)
-              prefixIcon!,
-
-            if(widget.prefixIcons != null)
-              SizedBox(width: widget.spaceBetweenIconAndText,),
+            if (widget.prefixIcons != null) prefixIcon!,
+            if (widget.prefixIcons != null)
+              SizedBox(
+                width: widget.spaceBetweenIconAndText,
+              ),
             AnimatedDefaultTextStyle(
-              duration: duration + Duration(milliseconds: duration.inMilliseconds ~/ 6),
+              duration: duration +
+                  Duration(milliseconds: duration.inMilliseconds ~/ 6),
               curve: Curves.easeInOut,
               style: style,
               child: Text(
@@ -228,9 +233,9 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle> with Ti
           }
 
           if (widget.onChange != null) {
-            if (decimalIndex.toDouble() < newIndex){
+            if (decimalIndex.toDouble() < newIndex) {
               widget.onChange!(decimalIndex.toDouble().floor());
-            }else{
+            } else {
               widget.onChange!(decimalIndex.toDouble().ceil());
             }
           }

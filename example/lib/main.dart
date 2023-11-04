@@ -53,7 +53,9 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
             child: Column(
               children: [
                 animatedHorizontalToggle(context),
-                const SizedBox(height: 30,),
+                const SizedBox(
+                  height: 30,
+                ),
                 animatedVerticalToggle(),
               ],
             ),
@@ -167,7 +169,9 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
             ),
           ],
         ),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -327,7 +331,9 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           local:
               'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
         ),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         AnimatedHorizontalToggle(
           taps: const ['First', 'Second', 'Last'],
           // write you taps names
@@ -385,7 +391,9 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           local:
               'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
         ),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         AnimatedHorizontalToggle(
           taps: const ['First', 'Second', 'Last'],
           // write you taps names
@@ -427,7 +435,9 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           local:
               'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
         ),
-        const SizedBox(height: 30,),
+        const SizedBox(
+          height: 30,
+        ),
         AnimatedHorizontalToggle(
           taps: const ['First', 'Second', 'Last'],
           // write you taps names

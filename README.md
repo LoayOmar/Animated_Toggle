@@ -7,7 +7,10 @@
 
 Animated Toggle Give you easy way to make your custom Animated toggle.
 
-![Vertical Gif](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif) ![Horizontal Gif](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif)
+<p>
+ <img src="https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif"/>
+ <img src="https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif"/>
+</p>
 
 ![Full Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpg) ![Default Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
 
@@ -113,6 +116,9 @@ final double spaceBetweenIconAndText;
 ```
 
 ## Usage
+
+**For More Examples Go To Example Tap**
+
 
 How to use Horizontal Animated Toggle
 
@@ -241,7 +247,8 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
 
 ## Additional information
 
-Say to me in GitHub what you need to see in the package in the next update
+Say to me in GitHub what you need to see in the package in the next update.
+Wait for more feature soon.
 
 ## Author
 
