@@ -7,8 +7,13 @@
 
 Animated Toggle Give you easy way to make your custom Animated toggle.
 
+|       ![single-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif)       |                      ![multi-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif)                       |
+|:-----------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------:|
+|                                         **Vertical Animated Toggle**                                        |                                                         **Horizontal Animated Toggle**                                                    |
+
 <p>
  <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png"/>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpeg"/>
 </p>
 
 ## Installation
@@ -42,6 +47,10 @@ void main() {
 
 Horizontal Animated Toggle
 
+<p>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/H_Ex.jpeg"/>
+</p>
+
 ```dart
 final Duration duration;
 final List<String> taps;
@@ -72,6 +81,10 @@ final double spaceBetweenIconAndText;
 ```
 
 Vertical Animated Toggle
+
+<p>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/V_Ex.jpeg"/>
+</p>
 
 ```dart
 final Duration duration;
