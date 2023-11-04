@@ -7,9 +7,9 @@
 
 Animated Toggle Give you easy way to make your custom Animated toggle.
 
-|       ![single-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif)       |                      ![multi-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif)                       |
-|:-----------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------:|
-|                                         **Vertical Animated Toggle**                                        |                                                         **Horizontal Animated Toggle**                                                    |
+![single-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif)
+
+![multi-mode-picker](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif)
 
 <p>
  <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png"/>
