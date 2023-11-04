@@ -9,7 +9,7 @@ Animated Toggle Give you easy way to make your custom Animated toggle.
 
 ![Vertical Gif](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif) ![Horizontal Gif](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif)
 
-![Full Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpeg) ![Default Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
+![Full Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpg) ![Default Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
 
 
 ## Installation
