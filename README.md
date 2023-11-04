@@ -13,6 +13,8 @@ Animated Toggle Give you easy way to make your custom Animated toggle.
 
 <p>
  <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png"/>
+</p>
+<p>
  <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpeg"/>
 </p>
 
