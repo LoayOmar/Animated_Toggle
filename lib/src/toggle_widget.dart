@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 
-
 class AnimatedToggle extends StatefulWidget {
-  AnimatedToggle({
-    Key? key,
-    required this.taps,
-    required this.width,
-    required this.height,
-    required this.duration,
-    this.background = Colors.grey,
-    this.activeColor = Colors.indigo,
-    this.activeTextStyle = const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-    this.inActiveTextStyle = const TextStyle(
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
-      color: Colors.indigo,
-    ),
-    this.horizontalPadding = 4,
-    this.verticalPadding = 4,
-    this.activeHorizontalPadding = 0,
-    this.activeVerticalPadding = 0,
-    this.radius = 14,
-    this.activeButtonRadius = 14,
-    this.underLineHeight = 1,
-    this.activeUnderLineHeight = 2,
-    this.index = 0,
-    this.onChange,
-    this.underLineColor = Colors.grey,
-    this.activeUnderLineColor = Colors.black,
-    this.showUnderLine = false,
-    this.showActiveButtonColor = true,
-  }) : super(key: key);
+  AnimatedToggle(
+      {Key? key,
+      required this.taps,
+      required this.width,
+      required this.height,
+      required this.duration,
+      this.background = Colors.grey,
+      this.activeColor = Colors.indigo,
+      this.activeTextStyle = const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
+      this.inActiveTextStyle = const TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: Colors.indigo,
+      ),
+      this.horizontalPadding = 4,
+      this.verticalPadding = 4,
+      this.activeHorizontalPadding = 0,
+      this.activeVerticalPadding = 0,
+      this.radius = 14,
+      this.activeButtonRadius = 14,
+      this.underLineHeight = 1,
+      this.activeUnderLineHeight = 2,
+      this.onChange,
+      this.underLineColor = Colors.grey,
+      this.activeUnderLineColor = Colors.black,
+      this.showUnderLine = false,
+      this.showActiveButtonColor = true,
+      this.local = 'en'})
+      : super(key: key);
 
   final List<String> taps;
   final double width;
@@ -53,17 +52,19 @@ class AnimatedToggle extends StatefulWidget {
   final double underLineHeight;
   final double activeUnderLineHeight;
   final double activeButtonRadius;
-  int index = 0;
   final Function(int index)? onChange;
   final bool showUnderLine;
   final bool showActiveButtonColor;
   final Duration duration;
+  final String local;
 
   @override
   State<AnimatedToggle> createState() => _AnimatedToggleState();
 }
 
 class _AnimatedToggleState extends State<AnimatedToggle> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -76,44 +77,56 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          if(widget.showActiveButtonColor)
+          if (widget.showActiveButtonColor)
             AnimatedAlign(
               alignment: Alignment(
-                  (widget.index /
-                      (widget.taps.length - 1) *
-                      (2 - (widget.horizontalPadding / 100))) -
+                  ((widget.local == 'en'
+                              ? index
+                              : (widget.taps.length - index - 1)) /
+                          (widget.taps.length - 1) *
+                          (2 - (widget.horizontalPadding / 100))) -
                       1 +
                       ((widget.horizontalPadding / 2) / 100),
                   0),
               duration: widget.duration,
               child: Container(
-                width: (widget.width / widget.taps.length) - widget.horizontalPadding,
-                margin: EdgeInsets.symmetric(vertical: widget.activeVerticalPadding, horizontal: widget.activeHorizontalPadding),
+                width: (widget.width / widget.taps.length) -
+                    widget.horizontalPadding,
+                margin: EdgeInsets.symmetric(
+                    vertical: widget.activeVerticalPadding,
+                    horizontal: widget.activeHorizontalPadding),
                 decoration: BoxDecoration(
                   color: widget.activeColor,
-                  borderRadius: BorderRadius.circular(widget.activeButtonRadius),
+                  borderRadius:
+                      BorderRadius.circular(widget.activeButtonRadius),
                 ),
               ),
             ),
-          if(widget.showUnderLine)
+          if (widget.showUnderLine)
             Container(
               height: widget.underLineHeight,
               color: widget.underLineColor,
             ),
-          if(widget.showUnderLine)
+          if (widget.showUnderLine)
             AnimatedAlign(
               alignment: Alignment(
-                  (widget.index /
-                      (widget.taps.length - 1) *
-                      (2 - (widget.horizontalPadding / 100))) -
+                  ((widget.local == 'en'
+                              ? index
+                              : (widget.taps.length - index - 1)) /
+                          (widget.taps.length - 1) *
+                          (2 - (widget.horizontalPadding / 100))) -
                       1 +
                       ((widget.horizontalPadding / 2) / 100),
                   0),
               duration: widget.duration,
               child: Container(
-                width: (widget.width / widget.taps.length) - widget.horizontalPadding,
+                width: (widget.width / widget.taps.length) -
+                    widget.horizontalPadding,
                 height: widget.activeUnderLineHeight,
-                margin: EdgeInsets.only(top: widget.height - (widget.activeUnderLineHeight - widget.underLineHeight),),
+                margin: EdgeInsets.only(
+                  top: widget.height -
+                      (widget.activeUnderLineHeight - widget.underLineHeight),
+                ),
                 decoration: BoxDecoration(
                   color: widget.activeUnderLineColor,
                   //borderRadius: BorderRadius.circular(activeButtonRadius),
@@ -128,9 +141,9 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
               children: [
                 for (int i = 0; i < widget.taps.length; i++)
                   buildSwitchTab(
-                    i == widget.index,
+                    i == index,
                     widget.taps[i],
-                    i == widget.index
+                    i == index
                         ? widget.activeTextStyle
                         : widget.inActiveTextStyle,
                     i,
@@ -153,17 +166,19 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
       behavior: HitTestBehavior.translucent,
       onTap: () {
         setState(() {
-          widget.index = toggleIndex;
+          index = toggleIndex;
         });
-        if(widget.onChange!=null){
-          widget.onChange!(widget.index);
+        if (widget.onChange != null) {
+          widget.onChange!(index);
         }
       },
       child: Container(
         alignment: Alignment.center,
         margin: EdgeInsets.symmetric(
-            horizontal: widget.horizontalPadding/2, vertical: widget.verticalPadding),
-        width: (widget.width / widget.taps.length) - (widget.horizontalPadding * widget.taps.length),
+            horizontal: widget.horizontalPadding / 2,
+            vertical: widget.verticalPadding),
+        width: (widget.width / widget.taps.length) -
+            (widget.horizontalPadding * widget.taps.length),
         child: Text(
           title,
           textAlign: TextAlign.center,

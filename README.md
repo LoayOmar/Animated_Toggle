@@ -13,7 +13,9 @@ dependencies:
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```markdown
+![Simple Example](assets/images/animated_toggle.png)
+```
 
 ## Getting started
 
@@ -26,6 +28,33 @@ void main() {
 
 // Start use th package in your State Widget
   ```
+
+## What you can handle
+
+```dart
+final List<String> taps;
+final double width;
+final double height;
+final Color background;
+final Color activeColor;
+final Color underLineColor;
+final Color activeUnderLineColor;
+final TextStyle activeTextStyle;
+final TextStyle inActiveTextStyle;
+final double horizontalPadding;
+final double verticalPadding;
+final double activeHorizontalPadding;
+final double activeVerticalPadding;
+final double radius;
+final double underLineHeight;
+final double activeUnderLineHeight;
+final double activeButtonRadius;
+final Function(int index)? onChange;
+final bool showUnderLine;
+final bool showActiveButtonColor;
+final Duration duration;
+final String local;
+```
 
 ## Usage
 Simple Example about how to use
@@ -83,6 +112,8 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Say to me in GitHub what you need to see in the package in the next update
+
+## Author
+
+[Loay Omar](https://github.com/LoayOmar)

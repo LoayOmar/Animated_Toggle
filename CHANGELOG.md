@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.0.3
 
-* TODO: Describe initial release.
+* Animated Toggle Give you easy way to make your custom Animated toggle.
