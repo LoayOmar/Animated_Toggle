@@ -14,7 +14,7 @@ dependencies:
 ## Features
 
 ```markdown
-![Simple Example](https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/images/animated_toggle.png)
+![Simple Example](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
 ```
 
 ## Getting started
