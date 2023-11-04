@@ -18,5 +18,3 @@ dev_dependencies:
   dartdoc: ^6.3.0
 
 flutter:
-  assets:
-    - assets/images/
