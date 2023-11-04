@@ -8,8 +8,8 @@
 Animated Toggle Give you easy way to make your custom Animated toggle.
 
 <p>
- <img src="https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/V.gif"/>
- <img src="https://github.com/LoayOmar/Animated_Toggle/blob/master/assets/gif/H.gif"/>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/gif/H_V.gif"/>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/gif/V_V.gif"/>
 </p>
 
 ![Full Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/F_Ex.jpg) ![Default Ex](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
