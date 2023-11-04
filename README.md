@@ -1,6 +1,15 @@
 # Animated Toggle
 
+<a href="https://pub.dev/packages/animated_toggle"><img src="https://img.shields.io/pub/v/animated_toggle.svg" alt="Pub"></a>
+<a href="https://pub.dev/packages/animated_toggle/score"><img src="https://img.shields.io/pub/likes/animated_toggle?logo=flutter" alt="Pub likes"></a>
+<a href="https://pub.dev/packages/animated_toggle/score"><img src="https://img.shields.io/pub/popularity/animated_toggle?logo=flutter" alt="Pub popularity"></a>
+<a href="https://pub.dev/packages/animated_toggle/score"><img src="https://img.shields.io/pub/points/animated_toggle?logo=flutter" alt="Pub points"></a>
+
 Animated Toggle Give you easy way to make your custom Animated toggle.
+
+<p>
+ <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png"/>
+</p>
 
 ## Installation
 
@@ -8,19 +17,19 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  your_package_name: ^1.0.0
+  animated_toggle: ^0.0.3
   ```
 
 ## Features
 
-```markdown
-![Simple Example](https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/animated_toggle.png)
-```
+Easy to use the Animated Toggle Package you can handle all colors and width and the height.
+You can control the start from left or right if you need this for arabic or english or etc.
+you can control the Text Style and the padding for the Animated Toggle.
 
 ## Getting started
 
 ```dart
-import 'package:your_package_name/your_package_name.dart';
+import 'package:animated_toggle/animated_toggle.dart';
 
 void main() {
   
