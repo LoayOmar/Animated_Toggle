@@ -78,6 +78,7 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
     with TickerProviderStateMixin {
   Decimal decimalIndex = Decimal.parse('0');
   bool addInitialIndex = false;
+  bool moving = false;
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +184,10 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        moveToNewIndex(newIndex: toggleIndex, duration: duration);
+        if(!moving){
+          moving = true;
+          moveToNewIndex(newIndex: toggleIndex, duration: duration);
+        }
       },
       child: Container(
         alignment: Alignment.center,
@@ -238,6 +242,9 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
             } else {
               widget.onChange!(decimalIndex.toDouble().ceil());
             }
+          }
+          if(!timer.isActive){
+            moving = false;
           }
         });
       },

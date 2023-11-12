@@ -19,7 +19,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  animated_toggle: 
+  animated_toggle: ^Last Version
   ```
 
 ## Features

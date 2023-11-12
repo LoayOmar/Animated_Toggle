@@ -77,6 +77,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
     with TickerProviderStateMixin {
   Decimal decimalIndex = Decimal.parse('0');
   bool addInitialIndex = false;
+  bool moving = false;
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +195,10 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        moveToNewIndex(newIndex: toggleIndex, duration: duration);
+        if(!moving){
+          moving = true;
+          moveToNewIndex(newIndex: toggleIndex, duration: duration);
+        }
       },
       child: Container(
         alignment: Alignment.center,
@@ -246,6 +250,9 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
             } else {
               widget.onChange!(decimalIndex.toDouble().ceil());
             }
+          }
+          if(!timer.isActive){
+            moving = false;
           }
         });
       },
