@@ -41,31 +41,109 @@ class AnimatedHorizontalToggle extends StatefulWidget {
       this.showActiveButtonColor = true,
       this.local = 'en'});
 
+  /// - From this handel the speed of moving when the toggle is changed
   final Duration duration;
+
+
+  /// - Add here the names of the buttons
   final List<String> taps;
+
+
+  /// - Here you can control the width of the toggle
   final double width;
+
+
+  /// - Here you can control the height of the toggle
   final double height;
+
+
+  /// - The start index for the toggle
   final int initialIndex;
+
+
+  /// - Toggle Background
   final Color background;
+
+
+  /// - Active button color
   final Color activeColor;
+
+
+  /// - The color of the underline
   final Color underLineColor;
+
+
+  /// - The color of the active underline
   final Color activeUnderLineColor;
+
+
+  /// - Text style for the active button
   final TextStyle activeTextStyle;
+
+
+  /// - Text style for the inActive button
   final TextStyle inActiveTextStyle;
+
+
+  /// - Horizontal padding for the toggle
   final double horizontalPadding;
+
+
+  /// - Vertical padding for the toggle
   final double verticalPadding;
+
+
+  /// - Horizontal padding for the active button
   final double activeHorizontalPadding;
+
+
+  /// - Vertical padding for the active button
   final double activeVerticalPadding;
+
+
+  /// - This radius will use for the toggle
   final double radius;
+
+
+  /// - Control the underline height
   final double underLineHeight;
+
+
+  /// - Control the active underline height
   final double activeUnderLineHeight;
+
+
+  /// - This radius will use for the active button
   final double activeButtonRadius;
+
+
+  /// - OnChange function will give you stream of int number
+  /// - This number will change when the index change
+  /// - If you press on the button number 3 and the index now is zero so the index will start from 0 and will be 1 and stop in 2 like this will give you the moving steps to make the moving smooth and the screen widgets changing with the moving for the toggle
   final Function(int index)? onChange;
+
+
+  /// - If this true the underline will be active
   final bool showUnderLine;
+
+
+  /// - If this true the active underline will be active
   final bool showActiveButtonColor;
+
+
+  /// - If this 'en' the toggle will start from left to right and if this 'ar' the toggle will start from right to left
   final String local;
+
+
+  /// - Here if you need to use specific icon before the text button name
   final List<Widget>? prefixIcons;
+
+
+  /// - If this true the prefix icon will shown
   final bool showPrefixIcon;
+
+
+  /// - Handel the space between the prefix icon and the text
   final double spaceBetweenIconAndText;
 
   @override
@@ -195,7 +273,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        if(!moving){
+        if (!moving) {
           moving = true;
           moveToNewIndex(newIndex: toggleIndex, duration: duration);
         }
@@ -251,7 +329,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
               widget.onChange!(decimalIndex.toDouble().ceil());
             }
           }
-          if(!timer.isActive){
+          if (!timer.isActive) {
             moving = false;
           }
         });
