@@ -16,6 +16,7 @@ class AnimatedHorizontalToggle extends StatefulWidget {
       this.initialIndex = 0,
       this.background = Colors.grey,
       this.activeColor = Colors.indigo,
+      this.inActiveColor = Colors.transparent,
       this.activeTextStyle = const TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w600,
@@ -32,6 +33,7 @@ class AnimatedHorizontalToggle extends StatefulWidget {
       this.activeVerticalPadding = 0,
       this.radius = 14,
       this.activeButtonRadius = 14,
+      this.inActiveButtonRadius = 0,
       this.underLineHeight = 1,
       this.activeUnderLineHeight = 2,
       this.onChange,
@@ -39,112 +41,110 @@ class AnimatedHorizontalToggle extends StatefulWidget {
       this.activeUnderLineColor = Colors.black,
       this.showUnderLine = false,
       this.showActiveButtonColor = true,
-      this.local = 'en'});
+        this.activeBorder,
+        this.inActiveBorder,
+        this.activeBoxShadow,
+        this.inActiveBoxShadow,
+      this.local = 'en',
+      });
 
   /// - From this handel the speed of moving when the toggle is changed
   final Duration duration;
 
-
   /// - Add here the names of the buttons
   final List<String> taps;
-
 
   /// - Here you can control the width of the toggle
   final double width;
 
-
   /// - Here you can control the height of the toggle
   final double height;
-
 
   /// - The start index for the toggle
   final int initialIndex;
 
-
   /// - Toggle Background
   final Color background;
-
 
   /// - Active button color
   final Color activeColor;
 
+  /// - InActive button color
+  final Color inActiveColor;
 
   /// - The color of the underline
   final Color underLineColor;
 
-
   /// - The color of the active underline
   final Color activeUnderLineColor;
-
 
   /// - Text style for the active button
   final TextStyle activeTextStyle;
 
-
   /// - Text style for the inActive button
   final TextStyle inActiveTextStyle;
-
 
   /// - Horizontal padding for the toggle
   final double horizontalPadding;
 
-
   /// - Vertical padding for the toggle
   final double verticalPadding;
-
 
   /// - Horizontal padding for the active button
   final double activeHorizontalPadding;
 
-
   /// - Vertical padding for the active button
   final double activeVerticalPadding;
-
 
   /// - This radius will use for the toggle
   final double radius;
 
-
   /// - Control the underline height
   final double underLineHeight;
-
 
   /// - Control the active underline height
   final double activeUnderLineHeight;
 
-
   /// - This radius will use for the active button
   final double activeButtonRadius;
 
+  /// - This radius will use for the inActive button
+  final double inActiveButtonRadius;
 
   /// - OnChange function will give you stream of int number
   /// - This number will change when the index change
   /// - If you press on the button number 3 and the index now is zero so the index will start from 0 and will be 1 and stop in 2 like this will give you the moving steps to make the moving smooth and the screen widgets changing with the moving for the toggle
   final Function(int index)? onChange;
 
-
   /// - If this true the underline will be active
   final bool showUnderLine;
-
 
   /// - If this true the active underline will be active
   final bool showActiveButtonColor;
 
-
   /// - If this 'en' the toggle will start from left to right and if this 'ar' the toggle will start from right to left
   final String local;
-
 
   /// - Here if you need to use specific icon before the text button name
   final List<Widget>? prefixIcons;
 
-
   /// - If this true the prefix icon will shown
   final bool showPrefixIcon;
 
-
   /// - Handel the space between the prefix icon and the text
   final double spaceBetweenIconAndText;
+
+  /// - Handle the shadow for active button
+  final List<BoxShadow>? activeBoxShadow;
+
+  /// - Handle the shadow for inActive button
+  final List<BoxShadow>? inActiveBoxShadow;
+
+  /// - Handle the border for active button
+  final Border? activeBorder;
+
+  /// - Handle the border for inActive button
+  final Border? inActiveBorder;
 
   @override
   State<AnimatedHorizontalToggle> createState() =>
@@ -197,6 +197,8 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
                   color: widget.activeColor,
                   borderRadius:
                       BorderRadius.circular(widget.activeButtonRadius),
+                  border: widget.activeBorder,
+                  boxShadow: widget.activeBoxShadow,
                 ),
               ),
             ),
@@ -249,7 +251,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
       children: [
         for (int i = 0; i < widget.taps.length; i++)
           buildSwitchTab(
-            i == decimalIndex.toDouble().round(),
+            i == (i.toDecimal() < decimalIndex? decimalIndex.toDouble().floor() :decimalIndex.toDouble().round()),
             widget.taps[i],
             widget.prefixIcons != null ? widget.prefixIcons![i] : null,
             i == decimalIndex.toDouble().round()
@@ -285,6 +287,13 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
             vertical: widget.verticalPadding),
         width: (widget.width / widget.taps.length) -
             (widget.horizontalPadding * widget.taps.length),
+        decoration: BoxDecoration(
+          color: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveColor : Colors.transparent,
+          borderRadius:
+          BorderRadius.circular(widget.inActiveButtonRadius),
+          border: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveBorder : null,
+          boxShadow: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveBoxShadow : null,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

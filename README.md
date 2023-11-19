@@ -56,6 +56,7 @@ final double height;
 final int initialIndex;
 final Color background;
 final Color activeColor;
+final Color inActiveColor;
 final Color underLineColor;
 final Color activeUnderLineColor;
 final TextStyle activeTextStyle;
@@ -68,6 +69,7 @@ final double radius;
 final double underLineHeight;
 final double activeUnderLineHeight;
 final double activeButtonRadius;
+final double inActiveButtonRadius;
 final Function(int index)? onChange;
 final bool showUnderLine;
 final bool showActiveButtonColor;
@@ -75,6 +77,10 @@ final String local;
 final List<Widget>? prefixIcons;
 final bool showPrefixIcon;
 final double spaceBetweenIconAndText;
+final List<BoxShadow>? activeBoxShadow;
+final List<BoxShadow>? inActiveBoxShadow;
+final Border? activeBorder;
+final Border? inActiveBorder;
 ```
 
 Vertical Animated Toggle
@@ -91,6 +97,7 @@ final double height;
 final int initialIndex;
 final Color background;
 final Color activeColor;
+final Color inActiveColor;
 final Color sideLineColor;
 final Color activeSideLineColor;
 final TextStyle activeTextStyle;
@@ -104,6 +111,7 @@ final double activeButtonHeight;
 final double sideLineWidth;
 final double activeSideLineWidth;
 final double activeButtonRadius;
+final double inActiveButtonRadius;
 final Function(int index)? onChange;
 final bool showSideLine;
 final bool showActiveButtonColor;
@@ -111,6 +119,10 @@ final String local;
 final List<Widget>? prefixIcons;
 final bool showPrefixIcon;
 final double spaceBetweenIconAndText;
+final List<BoxShadow>? activeBoxShadow;
+final List<BoxShadow>? inActiveBoxShadow;
+final Border? activeBorder;
+final Border? inActiveBorder;
 ```
 
 ## Usage

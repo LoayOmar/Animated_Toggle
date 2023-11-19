@@ -109,6 +109,54 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
                   'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
             ),
             AnimatedVerticalToggle(
+              taps: const ['First', 'Second', 'Third', 'Last'],
+              width: 80,
+              height: 200,
+              duration: const Duration(milliseconds: 300),
+              activeButtonHeight: 34,
+              initialIndex: 0,
+              background: Colors.transparent,
+              activeBorder: Border.all(color: Colors.black),
+              //inActiveBorder: Border.all(color: Colors.black),
+              inActiveColor: Colors.white,
+              inActiveBoxShadow: [
+                BoxShadow(
+                  offset: const Offset(0,2.2),
+                  blurRadius: 12,
+                  color: Colors.black.withOpacity(0.08),
+                ),
+              ],
+              activeColor: Colors.deepPurple.withOpacity(0.5),
+              // here you can control the active text style
+              activeTextStyle: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white),
+              // here you can control the inactive text style
+              inActiveTextStyle: const TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.deepPurple),
+              // the next 2 line if you need to put padding for the inactive buttons
+              horizontalPadding: 4,
+              verticalPadding: 4,
+              // the next 2 line if you need to put padding for the active button
+              activeHorizontalPadding: 4,
+              activeVerticalPadding: 2,
+              radius: 14,
+              // you can control the radius for the Animated widget
+              activeButtonRadius: 10,
+              inActiveButtonRadius: 10,
+              // you can control the radius for the active button
+              onChange: (index) {
+                // write Your Personal Code Here
+              },
+              showActiveButtonColor: true,
+              // 'en' mean make the start from left other mean start from right
+              local:
+                  'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
+            ),
+            AnimatedVerticalToggle(
               taps: const ['First', 'Second', 'Last'],
               // write you taps names
               width: 105,
@@ -296,6 +344,58 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
   Widget animatedHorizontalToggle(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(
+          height: 30,
+        ),
+        AnimatedHorizontalToggle(
+          taps: const ['First', 'Second', 'Last'],
+          // write you taps names
+          width: MediaQuery.of(context).size.width - 40,
+          height: 48,
+          duration: const Duration(milliseconds: 500),
+          initialIndex: 0,
+          background: Colors.transparent,
+          activeBorder: Border.all(color: Colors.black),
+          //inActiveBorder: Border.all(color: Colors.black),
+          inActiveColor: Colors.white,
+          inActiveBoxShadow: [
+            BoxShadow(
+              offset: const Offset(0,2.2),
+              blurRadius: 12,
+              color: Colors.black.withOpacity(0.08),
+            ),
+          ],
+          activeColor: Colors.deepPurple.withOpacity(0.5),
+          // here you can control the active text style
+          activeTextStyle: const TextStyle(
+              fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+          // here you can control the inactive text style
+          inActiveTextStyle: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.deepPurple),
+          // the next 2 line if you need to put padding for the inactive buttons
+          horizontalPadding: 4,
+          verticalPadding: 4,
+          // the next 2 line if you need to put padding for the active button
+          activeHorizontalPadding: 2,
+          activeVerticalPadding: 4,
+          radius: 14,
+          // you can control the radius for the Animated widget
+          activeButtonRadius: 14,
+          inActiveButtonRadius: 14,
+          // you can control the radius for the active button
+          onChange: (index) {
+            // write Your Personal Code Here
+          },
+          showActiveButtonColor: true,
+          // 'en' mean make the start from left other mean start from right
+          local:
+          'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
+        ),
+        const SizedBox(
+          height: 30,
+        ),
         AnimatedHorizontalToggle(
           taps: const ['First', 'Second', 'Last'],
           // write you taps names
