@@ -27,6 +27,7 @@ class AnimatedHorizontalToggle extends StatefulWidget {
         fontWeight: FontWeight.w400,
         color: Colors.indigo,
       ),
+        this.spaceBetween = 0,
       this.horizontalPadding = 4,
       this.verticalPadding = 4,
       this.activeHorizontalPadding = 0,
@@ -83,6 +84,9 @@ class AnimatedHorizontalToggle extends StatefulWidget {
 
   /// - Text style for the inActive button
   final TextStyle inActiveTextStyle;
+
+  /// - The space between the buttons
+  final double spaceBetween;
 
   /// - Horizontal padding for the toggle
   final double horizontalPadding;
@@ -182,13 +186,13 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
                                   decimalIndex.toDouble() -
                                   1)) /
                           (widget.taps.length - 1) *
-                          (2 - (widget.horizontalPadding / 100))) -
+                          (2 - ((widget.horizontalPadding) / 100))) -
                       1 +
                       ((widget.horizontalPadding / 2) / 100),
                   0),
               duration: widget.duration,
               child: Container(
-                width: (widget.width / widget.taps.length) -
+                width: ((widget.width - widget.spaceBetween) / widget.taps.length) -
                     widget.horizontalPadding,
                 margin: EdgeInsets.symmetric(
                     vertical: widget.activeVerticalPadding,
@@ -222,7 +226,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
                   0),
               duration: widget.duration,
               child: Container(
-                width: (widget.width / widget.taps.length) -
+                width: ((widget.width - widget.spaceBetween) / widget.taps.length) -
                     widget.horizontalPadding,
                 height: widget.activeUnderLineHeight,
                 margin: EdgeInsets.only(
@@ -247,7 +251,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
   Widget buildButtons() {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         for (int i = 0; i < widget.taps.length; i++)
           buildSwitchTab(
@@ -285,7 +289,7 @@ class _AnimatedHorizontalToggleState extends State<AnimatedHorizontalToggle>
         margin: EdgeInsets.symmetric(
             horizontal: widget.horizontalPadding / 2,
             vertical: widget.verticalPadding),
-        width: (widget.width / widget.taps.length) -
+        width: ((widget.width - widget.spaceBetween) / widget.taps.length) -
             (widget.horizontalPadding * widget.taps.length),
         decoration: BoxDecoration(
           color: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveColor : Colors.transparent,

@@ -61,6 +61,7 @@ final Color underLineColor;
 final Color activeUnderLineColor;
 final TextStyle activeTextStyle;
 final TextStyle inActiveTextStyle;
+final double spaceBetween;
 final double horizontalPadding;
 final double verticalPadding;
 final double activeHorizontalPadding;

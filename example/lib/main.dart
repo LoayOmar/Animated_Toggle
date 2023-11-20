@@ -348,10 +348,11 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           height: 30,
         ),
         AnimatedHorizontalToggle(
-          taps: const ['First', 'Second', 'Last'],
+          taps: const ['First', 'Second', 'Last',],
           // write you taps names
           width: MediaQuery.of(context).size.width - 40,
           height: 48,
+          spaceBetween: 15,
           duration: const Duration(milliseconds: 500),
           initialIndex: 0,
           background: Colors.transparent,
@@ -375,11 +376,11 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               fontWeight: FontWeight.w400,
               color: Colors.deepPurple),
           // the next 2 line if you need to put padding for the inactive buttons
-          horizontalPadding: 4,
-          verticalPadding: 4,
+          horizontalPadding: 0,
+          verticalPadding: 0,
           // the next 2 line if you need to put padding for the active button
-          activeHorizontalPadding: 2,
-          activeVerticalPadding: 4,
+          activeHorizontalPadding: 0,
+          activeVerticalPadding: 0,
           radius: 14,
           // you can control the radius for the Animated widget
           activeButtonRadius: 14,
