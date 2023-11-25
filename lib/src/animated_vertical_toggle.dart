@@ -4,50 +4,50 @@ import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedVerticalToggle extends StatefulWidget {
-  const AnimatedVerticalToggle(
-      {super.key,
-      required this.taps,
-      required this.width,
-      required this.height,
-      required this.duration,
-      this.prefixIcons,
-      this.showPrefixIcon = false,
-      this.spaceBetweenIconAndText = 8,
-      this.initialIndex = 0,
-      this.background = Colors.grey,
-      this.activeColor = Colors.indigo,
-        this.inActiveColor = Colors.transparent,
-      this.activeTextStyle = const TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w600,
-        color: Colors.white,
-      ),
-      this.inActiveTextStyle = const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
-        color: Colors.indigo,
-      ),
-      this.horizontalPadding = 4,
-      this.verticalPadding = 4,
-      this.activeHorizontalPadding = 0,
-      this.activeVerticalPadding = 0,
-      this.radius = 14,
-      this.activeButtonRadius = 14,
-        this.inActiveButtonRadius = 0,
-      this.sideLineWidth = 1,
-      this.activeSideLineWidth = 2,
-      this.onChange,
-      this.sideLineColor = Colors.grey,
-      this.activeSideLineColor = Colors.black,
-      this.showSideLine = false,
-      this.showActiveButtonColor = true,
-      this.activeButtonHeight = 40,
-        this.activeBorder,
-        this.inActiveBorder,
-        this.activeBoxShadow,
-        this.inActiveBoxShadow,
-      this.local = 'en',
-      });
+  const AnimatedVerticalToggle({
+    super.key,
+    required this.taps,
+    required this.width,
+    required this.height,
+    required this.duration,
+    this.prefixIcons,
+    this.showPrefixIcon = false,
+    this.spaceBetweenIconAndText = 8,
+    this.initialIndex = 0,
+    this.background = Colors.grey,
+    this.activeColor = Colors.indigo,
+    this.inActiveColor = Colors.transparent,
+    this.activeTextStyle = const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    ),
+    this.inActiveTextStyle = const TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: Colors.indigo,
+    ),
+    this.horizontalPadding = 4,
+    this.verticalPadding = 4,
+    this.activeHorizontalPadding = 0,
+    this.activeVerticalPadding = 0,
+    this.radius = 14,
+    this.activeButtonRadius = 14,
+    this.inActiveButtonRadius = 0,
+    this.sideLineWidth = 1,
+    this.activeSideLineWidth = 2,
+    this.onChange,
+    this.sideLineColor = Colors.grey,
+    this.activeSideLineColor = Colors.black,
+    this.showSideLine = false,
+    this.showActiveButtonColor = true,
+    this.activeButtonHeight = 40,
+    this.activeBorder,
+    this.inActiveBorder,
+    this.activeBoxShadow,
+    this.inActiveBoxShadow,
+    this.local = 'en',
+  });
 
   /// - From this handel the speed of moving when the toggle is changed
   final Duration duration;
@@ -115,10 +115,11 @@ class AnimatedVerticalToggle extends StatefulWidget {
   /// - This radius will use for the inActive button
   final double inActiveButtonRadius;
 
-  /// - OnChange function will give you stream of int number
+  /// - OnChange function will give you stream of int number (currentIndex)
   /// - This number will change when the index change
   /// - If you press on the button number 3 and the index now is zero so the index will start from 0 and will be 1 and stop in 2 like this will give you the moving steps to make the moving smooth and the screen widgets changing with the moving for the toggle
-  final Function(int index)? onChange;
+  /// - And will give you targetIndex this the final number which the currentIndex will stop on it
+  final Function(int currentIndex, int targetIndex)? onChange;
 
   /// - If this true the side line will be active
   final bool showSideLine;
@@ -242,7 +243,10 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
       children: [
         for (int i = 0; i < widget.taps.length; i++)
           buildSwitchTab(
-            i == (i.toDecimal() < decimalIndex? decimalIndex.toDouble().floor() : decimalIndex.toDouble().round()),
+            i ==
+                (i.toDecimal() < decimalIndex
+                    ? decimalIndex.toDouble().floor()
+                    : decimalIndex.toDouble().round()),
             widget.taps[i],
             widget.prefixIcons != null ? widget.prefixIcons![i] : null,
             i == decimalIndex.toDouble().round()
@@ -279,11 +283,16 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
         height: widget.activeButtonHeight +
             (widget.verticalPadding / (decimalIndex.toDouble().round() + 1)),
         decoration: BoxDecoration(
-          color: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveColor : Colors.transparent,
-          borderRadius:
-          BorderRadius.circular(widget.inActiveButtonRadius),
-          border: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveBorder : null,
-          boxShadow: (decimalIndex.round()) != toggleIndex.toDecimal()? widget.inActiveBoxShadow : null,
+          color: (decimalIndex.round()) != toggleIndex.toDecimal()
+              ? widget.inActiveColor
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(widget.inActiveButtonRadius),
+          border: (decimalIndex.round()) != toggleIndex.toDecimal()
+              ? widget.inActiveBorder
+              : null,
+          boxShadow: (decimalIndex.round()) != toggleIndex.toDecimal()
+              ? widget.inActiveBoxShadow
+              : null,
         ),
         child: Row(
           mainAxisAlignment: widget.showSideLine
@@ -327,9 +336,9 @@ class _AnimatedVerticalToggleState extends State<AnimatedVerticalToggle>
 
           if (widget.onChange != null) {
             if (decimalIndex.toDouble() < newIndex) {
-              widget.onChange!(decimalIndex.toDouble().floor());
+              widget.onChange!(decimalIndex.toDouble().floor(), newIndex);
             } else {
-              widget.onChange!(decimalIndex.toDouble().ceil());
+              widget.onChange!(decimalIndex.toDouble().ceil(), newIndex);
             }
           }
           if (!timer.isActive) {

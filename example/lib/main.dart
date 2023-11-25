@@ -100,7 +100,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               // you can control the radius for the Animated widget
               activeButtonRadius: 10,
               // you can control the radius for the active button
-              onChange: (index) {
+              onChange: (int currentIndex, int targetIndex) {
                 // write Your Personal Code Here
               },
               showActiveButtonColor: true,
@@ -121,7 +121,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               inActiveColor: Colors.white,
               inActiveBoxShadow: [
                 BoxShadow(
-                  offset: const Offset(0,2.2),
+                  offset: const Offset(0, 2.2),
                   blurRadius: 12,
                   color: Colors.black.withOpacity(0.08),
                 ),
@@ -148,7 +148,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               activeButtonRadius: 10,
               inActiveButtonRadius: 10,
               // you can control the radius for the active button
-              onChange: (index) {
+              onChange: (int currentIndex, int targetIndex) {
                 // write Your Personal Code Here
               },
               showActiveButtonColor: true,
@@ -201,13 +201,13 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               // you can control the radius for the Animated widget
               activeButtonRadius: 14,
               // you can control the radius for the active button
-              onChange: (index) {
+              onChange: (int currentIndex, int targetIndex) {
                 //You should know the index here listening to the index changing when the toggle moving
                 //if you move from 0 to 3 the index will be 1 then will be 2
                 //this will make the moving and change the color more smooth
                 //if you make the duration milliseconds: 300 so you will get the real current index after 300 milliseconds
                 setState(() {
-                  secondVExIndex = index;
+                  secondVExIndex = currentIndex;
                 });
               },
               showActiveButtonColor: true,
@@ -255,7 +255,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               // this the thickness for the line down
               activeSideLineWidth: 2,
               // this the thickness for the line down the active only
-              onChange: (index) {
+              onChange: (int currentIndex, int targetIndex) {
                 // write Your Personal Code Here
               },
               sideLineColor: Colors.black.withOpacity(0.3),
@@ -318,13 +318,13 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
               // this the thickness for the line down
               activeSideLineWidth: 2,
               // this the thickness for the line down the active only
-              onChange: (index) {
+              onChange: (int currentIndex, int targetIndex) {
                 //You should know the index here listening to the index changing when the toggle moving
                 //if you move from 0 to 3 the index will be 1 then will be 2
                 //this will make the moving and change the color more smooth
                 //if you make the duration milliseconds: 300 so you will get the real current index after 300 milliseconds
                 setState(() {
-                  lastVExIndex = index;
+                  lastVExIndex = currentIndex;
                 });
               },
               sideLineColor: Colors.black.withOpacity(0.3),
@@ -348,7 +348,11 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           height: 30,
         ),
         AnimatedHorizontalToggle(
-          taps: const ['First', 'Second', 'Last',],
+          taps: const [
+            'First',
+            'Second',
+            'Last',
+          ],
           // write you taps names
           width: MediaQuery.of(context).size.width - 40,
           height: 48,
@@ -361,7 +365,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           inActiveColor: Colors.white,
           inActiveBoxShadow: [
             BoxShadow(
-              offset: const Offset(0,2.2),
+              offset: const Offset(0, 2.2),
               blurRadius: 12,
               color: Colors.black.withOpacity(0.08),
             ),
@@ -386,13 +390,13 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           activeButtonRadius: 14,
           inActiveButtonRadius: 14,
           // you can control the radius for the active button
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             // write Your Personal Code Here
           },
           showActiveButtonColor: true,
           // 'en' mean make the start from left other mean start from right
           local:
-          'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
+              'en', // her you can add the local to control the alignment like if you use en its the normal to start from left to right and if you use ar the will start from right to left
         ),
         const SizedBox(
           height: 30,
@@ -424,7 +428,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // you can control the radius for the Animated widget
           activeButtonRadius: 14,
           // you can control the radius for the active button
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             // write Your Personal Code Here
           },
           showActiveButtonColor: true,
@@ -478,13 +482,13 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // you can control the radius for the Animated widget
           activeButtonRadius: 14,
           // you can control the radius for the active button
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             //You should know the index here listening to the index changing when the toggle moving
             //if you move from 0 to 3 the index will be 1 then will be 2
             //this will make the moving and change the color more smooth
             //if you make the duration milliseconds: 300 so you will get the real current index after 300 milliseconds
             setState(() {
-              secondHExIndex = index;
+              secondHExIndex = currentIndex;
             });
           },
           showActiveButtonColor: true,
@@ -525,7 +529,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // this the thickness for the line down
           activeUnderLineHeight: 2,
           // this the thickness for the line down the active only
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             // write Your Personal Code Here
           },
           underLineColor: Colors.black.withOpacity(0.3),
@@ -585,13 +589,13 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // this the thickness for the line down
           activeUnderLineHeight: 2,
           // this the thickness for the line down the active only
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             //You should know the index here listening to the index changing when the toggle moving
             //if you move from 0 to 3 the index will be 1 then will be 2
             //this will make the moving and change the color more smooth
             //if you make the duration milliseconds: 300 so you will get the real current index after 300 milliseconds
             setState(() {
-              lastHExIndex = index;
+              lastHExIndex = currentIndex;
             });
           },
           underLineColor: Colors.black.withOpacity(0.3),
