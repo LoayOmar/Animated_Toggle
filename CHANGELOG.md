@@ -1,3 +1,3 @@
-## 0.1.2
+## 0.1.3
 
 * Animated Toggle Give you easy way to make your custom Animated toggle.

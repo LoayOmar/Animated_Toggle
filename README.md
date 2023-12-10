@@ -5,6 +5,10 @@
 <a href="https://pub.dev/packages/animated_toggle/score"><img src="https://img.shields.io/pub/popularity/animated_toggle?logo=flutter" alt="Pub popularity"></a>
 <a href="https://pub.dev/packages/animated_toggle/score"><img src="https://img.shields.io/pub/points/animated_toggle?logo=flutter" alt="Pub points"></a>
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LoayOmar/Animated_Toggle/master/assets/images/palestine.jpg" alt="P1">
+</p>
+
 Animated Toggle Give you easy way to make your custom Animated toggle.
 
 
@@ -71,7 +75,7 @@ final double underLineHeight;
 final double activeUnderLineHeight;
 final double activeButtonRadius;
 final double inActiveButtonRadius;
-final Function(int index)? onChange;
+final Function(int currentIndex, int targetIndex)? onChange;
 final bool showUnderLine;
 final bool showActiveButtonColor;
 final String local;
@@ -113,7 +117,7 @@ final double sideLineWidth;
 final double activeSideLineWidth;
 final double activeButtonRadius;
 final double inActiveButtonRadius;
-final Function(int index)? onChange;
+final Function(int currentIndex, int targetIndex)? onChange;
 final bool showSideLine;
 final bool showActiveButtonColor;
 final String local;
@@ -178,7 +182,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // you can control the radius for the Animated widget
           activeButtonRadius: 14,
           // you can control the radius for the active button
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             // write Your Personal Code Here
           },
           showActiveButtonColor: true,
@@ -241,7 +245,7 @@ class _MyAnimatedToggleState extends State<MyAnimatedToggle> {
           // you can control the radius for the Animated widget
           activeButtonRadius: 10,
           // you can control the radius for the active button
-          onChange: (index) {
+          onChange: (int currentIndex, int targetIndex) {
             // write Your Personal Code Here
           },
           showActiveButtonColor: true,
